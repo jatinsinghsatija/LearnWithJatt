@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: light;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light" />
+  <title>LEARN WITH JATT — Android Interview Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Outfit:wght@360;480;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="rail" id="rail">
+      <div class="brand">
+        <span class="brand-mark">JATT</span>
+        <div>
+          <strong>LEARN WITH JATT</strong>
+          <p>Interview studio</p>
+        </div>
+      </div>
+
+      <nav class="cats" aria-label="Interview topics">
+        <button class="cat is-active" data-cat="android">
+          <span class="swatch swatch-android"></span>
+          Android
+          <em id="count-android">0</em>
+        </button>
+        <button class="cat" data-cat="java">
+          <span class="swatch swatch-java"></span>
+          Java
+          <em id="count-java">0</em>
+        </button>
+        <button class="cat" data-cat="kotlin">
+          <span class="swatch swatch-kotlin"></span>
+          Kotlin
+          <em id="count-kotlin">0</em>
+        </button>
+        <button class="cat" data-cat="flutter">
+          <span class="swatch swatch-flutter"></span>
+          Flutter
+          <em id="count-flutter">0</em>
+        </button>
+      </nav>
+
+      <div class="rail-block">
+        <p class="rail-label">Difficulty</p>
+        <div class="levels" role="tablist">
+          <button class="level is-active" data-level="all">All</button>
+          <button class="level" data-level="basic">Basic</button>
+          <button class="level" data-level="intermediate">Intermediate</button>
+          <button class="level" data-level="advanced">Advanced</button>
+        </div>
+      </div>
+
+      <div class="rail-block rail-lab">
+        <p class="rail-label">Specialized</p>
+        <button class="lab" data-cat="playground" type="button">
+          <span class="lab-mark" aria-hidden="true">{ }</span>
+          <span class="lab-copy">
+            <strong>Playground</strong>
+            <small>Code, run, and get feedback in Java, Kotlin, and Dart</small>
+          </span>
+          <em id="count-playground">0</em>
+        </button>
+      </div>
+
+    </aside>
+
+    <main class="stage">
+      <header class="top">
+        <div>
+          <p class="eyebrow" id="eyebrow">Android · all levels</p>
+          <h1 id="page-title">Android interview questions</h1>
+        </div>
+        <div class="top-actions">
+          <label class="search">
+            <input id="search" type="search" placeholder="Search questions, topics, tags…" autocomplete="off" />
+          </label>
+          <button id="btn-expand" class="ghost">Collapse all</button>
+        </div>
+      </header>
+
+      <p class="intro" id="intro">
+        Interview questions for Android, Java, Kotlin, and Flutter,
+        grouped as basic, intermediate, and advanced. Press <kbd>/</kbd> to search.
+      </p>
+      <section class="stats" id="stats"></section>
+      <section class="topics" id="topics"></section>
+      <section class="list" id="list"></section>
+      <p class="empty" id="empty" hidden>No questions match these filters.</p>
+    </main>
+  </div>
+
+  <dialog id="dialog">
+    <article class="sheet">
+      <header>
+        <p id="dlg-meta"></p>
+        <h2 id="dlg-title"></h2>
+        <button class="icon" id="dlg-close" aria-label="Close">×</button>
+      </header>
+      <div class="sheet-body answer" id="dlg-body"></div>
+      <footer>
+        <button id="dlg-prev" class="ghost">Previous</button>
+        <button id="dlg-next" class="solid">Next</button>
+      </footer>
+    </article>
+  </dialog>
+
+  <script src="data/android.js"></script>
+  <script src="data/android-extra.js"></script>
+  <script src="data/android-more.js"></script>
+  <script src="data/android-testing.js"></script>
+  <script src="data/java.js"></script>
+  <script src="data/java-extra.js"></script>
+  <script src="data/java-more.js"></script>
+  <script src="data/java-testing.js"></script>
+  <script src="data/kotlin.js"></script>
+  <script src="data/kotlin-extra.js"></script>
+  <script src="data/kotlin-more.js"></script>
+  <script src="data/kotlin-testing.js"></script>
+  <script src="data/flutter.js"></script>
+  <script src="data/flutter-extra.js"></script>
+  <script src="data/flutter-more.js"></script>
+  <script src="data/flutter-testing.js"></script>
+  <script src="data/playground.js"></script>
+  <script src="js/playground.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

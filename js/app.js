@@ -234,6 +234,29 @@
     });
   }
 
+  function closeMenu() {
+    document.body.classList.remove("nav-open");
+    const btn = document.getElementById("btn-menu");
+    const scrim = document.getElementById("nav-scrim");
+    if (btn) {
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "Open menu");
+    }
+    if (scrim) scrim.hidden = true;
+  }
+
+  function toggleMenu() {
+    const open = !document.body.classList.contains("nav-open");
+    document.body.classList.toggle("nav-open", open);
+    const btn = document.getElementById("btn-menu");
+    const scrim = document.getElementById("nav-scrim");
+    if (btn) {
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+    if (scrim) scrim.hidden = !open;
+  }
+
   function setMode(cat) {
     state.cat = cat;
     state.topic = "all";
@@ -241,6 +264,7 @@
       b.classList.toggle("is-active", b.dataset.cat === cat);
     });
     document.body.classList.toggle("is-playground", cat === "playground");
+    if (window.matchMedia("(max-width: 980px)").matches) closeMenu();
     paint();
   }
 
@@ -287,6 +311,14 @@
     btn.addEventListener("click", () => setMode(btn.dataset.cat));
   });
 
+  const menuBtn = document.getElementById("btn-menu");
+  const scrim = document.getElementById("nav-scrim");
+  if (menuBtn) menuBtn.addEventListener("click", toggleMenu);
+  if (scrim) scrim.addEventListener("click", closeMenu);
+  window.addEventListener("resize", () => {
+    if (!window.matchMedia("(max-width: 980px)").matches) closeMenu();
+  });
+
   document.querySelectorAll(".level").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.level = btn.dataset.level;
@@ -309,7 +341,8 @@
   document.getElementById("dlg-prev").addEventListener("click", () => moveDialog(-1));
 
   document.addEventListener("keydown", (e) => {
-    if (e.target.matches("input, textarea")) return;
+    if (e.key === "Escape") closeMenu();
+    if (e.target.matches("input, textarea, select")) return;
     if (e.key === "/") {
       e.preventDefault();
       document.getElementById("search").focus();

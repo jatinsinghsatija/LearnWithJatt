@@ -2,7 +2,7 @@
 <html lang="en" style="color-scheme: light;">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light only" />
   <meta name="supported-color-schemes" content="light" />
   <title>LEARN WITH JATT — Android Interview Studio</title>
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
   <div class="app">
     <aside class="rail" id="rail">
       <div class="brand">
@@ -20,8 +21,12 @@
           <strong>LEARN WITH JATT</strong>
           <p>Interview studio</p>
         </div>
+        <button type="button" class="menu-toggle" id="btn-menu" aria-label="Open menu" aria-expanded="false" aria-controls="rail-nav">
+          <span></span><span></span><span></span>
+        </button>
       </div>
 
+      <div class="rail-nav" id="rail-nav">
       <nav class="cats" aria-label="Interview topics">
         <button class="cat is-active" data-cat="android">
           <span class="swatch swatch-android"></span>
@@ -65,6 +70,7 @@
           </span>
           <em id="count-playground">0</em>
         </button>
+      </div>
       </div>
 
     </aside>
